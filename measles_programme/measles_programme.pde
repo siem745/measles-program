@@ -10,7 +10,7 @@ float smallerDimension;
 color resetColour=#FFFFFF;
 //
 void setup() {
-   size( 600, 400);//fullScreen();
+   size( 900, 600);//fullScreen();
   appWidth = width; //displayWidth
   appHeight = height; //displayHeight
   //Ternary Operator
@@ -26,26 +26,29 @@ void setup() {
   backgroundWidth = faceDiameter;
   backgroundHeight = faceDiameter;
   
-  leftEyeX =backgroundX+smallerDimension*1/4;
+  leftEyeX =backgroundX+smallerDimension*1/3;
   leftEyeY =backgroundY+smallerDimension*1/4 ;
   eyeDimater = smallerDimension*1/9;
-  rightEyeX =backgroundX+smallerDimension*3/4 ;
+  rightEyeX =backgroundX+smallerDimension*7/10 ;
   rightEyeY =leftEyeY ;
+  
   noseX1 =  faceX  ;
   noseY1 =rightEyeY ;
   noseX2 =leftEyeX ;
   noseY2 = faceY;
   noseX3 = rightEyeX;
   noseY3 = faceY;
+  
   mouthX1 =noseX2;
   mouthY1 = backgroundY+smallerDimension*3/4;
   mouthX2 = noseX3;
   mouthY2 = mouthY1;
   mouthOpen = smallerDimension*1/5;
   mouthReset = smallerDimension/smallerDimension;
-  measleX = random(0,appWidth);
-  measleY = random(0,appHeight);
-  measleDiameter = random(smallerDimension*1/2, smallerDimension*1/40);
+  
+  measleX =random(backgroundX,backgroundX+backgroundWidth);
+  measleY =random (backgroundY,backgroundY+backgroundHeight);
+  measleDiameter = random(smallerDimension*1/5, smallerDimension*1/50);
   //
   //DIVs
   ellipse( faceX, faceY, faceDiameter, faceDiameter );
@@ -60,8 +63,8 @@ void setup() {
 //
 void draw() {
   //rect( backgroundX, backgroundY, backgroundWidth, backgroundHeight ); //Circle ONLY
-  ellipse( faceX, faceY, faceDiameter, faceDiameter );
-  ellipse ( leftEyeX, leftEyeY, eyeDimater, eyeDimater ); //Left Eye
+  //ellipse( faceX, faceY, faceDiameter, faceDiameter );
+  ellipse( leftEyeX, leftEyeY, eyeDimater, eyeDimater ); //Left Eye
   ellipse ( rightEyeX, rightEyeY, eyeDimater, eyeDimater ); //Right Eye
   triangle( noseX1, noseY1, noseX2, noseY2, noseX3, noseY3 ); //Nose
   strokeWeight(mouthOpen);
@@ -70,9 +73,9 @@ void draw() {
   //
   color measleColour = color(255,random(0,84),random(0,103));
   fill(measleColour);
-   measleX = random(0,appWidth);
-  measleY = random(0,appHeight);
-  measleDiameter = random(smallerDimension*1/2, smallerDimension*1/40);
+   measleX = random(backgroundX,backgroundX+backgroundWidth);
+  measleY =random (backgroundY,backgroundY+backgroundHeight);
+  measleDiameter = random(smallerDimension*1/5, smallerDimension*1/50);
   noStroke();
   ellipse( measleX, measleY, measleDiameter, measleDiameter );
   stroke(1); //default is 1
